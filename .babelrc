@@ -1,0 +1,7 @@
+//THIS FILE HOLDS THE SETTING FOR BABEL
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react"],
+    "plugins": ["transform-class-properties"]
+
+
+}

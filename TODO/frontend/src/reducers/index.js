@@ -1,0 +1,9 @@
+//root reducer
+import {combineReducers} from 'redux';
+import task from './task';
+
+export default combineReducers({
+
+    
+
+});
