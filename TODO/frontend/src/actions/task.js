@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_TASK } from "./types";
+import { GET_TASK, DELETE_TASK, ADD_TASK} from "./types";
 
 // GET TASK
 
@@ -11,6 +11,30 @@ export const getTask = () => dispatch => {
       dispatch({
         type: GET_TASK,
         payload: res.data
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+export const deleteTask = (id) => dispatch => {
+  axios
+    .delete(`/api/task/${id}`)
+    .then(res => {
+      dispatch({
+        type: DELETE_TASK,
+        payload: id
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+export const addTask = (task) => dispatch => {
+  axios
+    .post('/api/task/'. task)
+    .then(res => {
+      dispatch({
+        type: DELETE_TASK,
+        payload: id
       });
     })
     .catch(err => console.log(err));
