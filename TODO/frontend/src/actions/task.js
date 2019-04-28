@@ -16,7 +16,7 @@ export const getTask = () => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const deleteTask = (id) => dispatch => {
+export const deleteTask = id => dispatch => {
   axios
     .delete(`/api/task/${id}`)
     .then(res => {
@@ -28,13 +28,13 @@ export const deleteTask = (id) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const addTask = (task) => dispatch => {
+export const addTask = task => dispatch => {
   axios
-    .post('/api/task/'. task)
+    .post("/api/task/", task)
     .then(res => {
       dispatch({
-        type: DELETE_TASK,
-        payload: id
+        type: ADD_TASK,
+        payload: res.data
       });
     })
     .catch(err => console.log(err));

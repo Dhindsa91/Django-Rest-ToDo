@@ -1,70 +1,84 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addTask } from "../../actions/task";
 
+
 export class Form extends Component {
   state = {
-    state: "",
-    text: ""
+    status: '',
+    text: ''
   };
 
   static propTypes = {
     addTask: PropTypes.func.isRequired
   };
 
-  onChange = e => this.setState({ [e.target.state]: e.target.value });
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   onSubmit = e => {
     e.preventDefault();
-    const { state, text } = this.state;
-    const task = { state, text };
+    console.log("submit");
+    const { status, text } = this.state;
+    const task = { status, text };
     this.props.addTask(task);
     this.setState({
-      state: "",
-      text: ""
-    });
+        status: "",
+        text: "",
+        
+      });
+
   };
 
   render() {
-    const { state,  text } = this.state;
+    const { status,  text } = this.state;
     return (
-      <div className="card card-body mt-4 mb-4">
+     <Fragment>
+      <div>
         <h2>Add Task</h2>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group">
+
+        <div className="form-group">
             <label>Status</label>
+
             <input
               className="form-control"
               type="text"
               name="status"
               onChange={this.onChange}
-              value={status}
+              value={this.status}
             />
           </div>
          
           <div className="form-group">
             <label>Text</label>
+
             <textarea
               className="form-control"
               type="text"
               name="text"
               onChange={this.onChange}
-              value={text}
+              value={this.text}
             />
           </div>
+          
           <div className="form-group">
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </div>
+
         </form>
-      </div>
+    </div>
+    </Fragment>
+    
     );
   }
+
 }
 
 export default connect(
   null,
   { addTask }
 )(Form);
+

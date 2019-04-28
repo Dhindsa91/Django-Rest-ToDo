@@ -32,7 +32,7 @@ export class Task extends Component {
         <tbody>
             {this.props.task.map(task=>(
                 <tr key={task.id}>
-                <td>{task.state}</td>
+                <td>{task.status}</td>
                 <td>{task.dueDate}</td>
                 <td>{task.text}</td>
                 <td><button onClick={this.props.deleteTask.bind(this, task.id)} className="btn btn-danger btn-sm">Delete</button></td>

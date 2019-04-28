@@ -13,21 +13,21 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 task: action.payload //being sent as a payload as a action
-            }
+            };
         
         case DELETE_TASK:
         return{
             ...state,
             task: state.task.filter(task=>task.id !== action.payload)
 
-        }
+        };
         case ADD_TASK:
             return{
                 ...state,
             task: [...state.task, action.payload]
-            }
+            };
         default:
-            return state
+            return state;
     }
 
 
