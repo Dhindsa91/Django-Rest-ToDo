@@ -2,12 +2,15 @@ import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './layout/Header';
 import Dashboard from './task/Dashboard';
+
+import Alerts from './layout/Alerts';
 import {Provider} from 'react-redux'; //this is what combines react and redux Wrapped around everythiong
 import store from '../store';
 import {Provider as AlertProvider} from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 
+//Alert Options
 const alertOptions = {
     timeout: 2500,
     position: 'top center'
@@ -24,7 +27,9 @@ class App extends Component {
             <AlertProvider template={AlertTemplate}
             {...alertOptions}>
            <Fragment>
+
                 <Header/>
+                <Alerts/>
                 <div id='container'>
                     <Dashboard/>
                 </div>

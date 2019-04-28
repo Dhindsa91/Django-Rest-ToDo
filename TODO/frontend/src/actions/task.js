@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_TASK, DELETE_TASK, ADD_TASK} from "./types";
+import { GET_TASK, DELETE_TASK, ADD_TASK, GET_ERRORS} from "./types";
 
 // GET TASK
 
@@ -37,5 +37,14 @@ export const addTask = task => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      const errors ={
+        msg: err.response.data,
+        payload: err.response.status
+      }
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors
+      });
+    });
 };
