@@ -38,17 +38,16 @@ export class Form extends Component {
         <h2>Add Task</h2>
         <form onSubmit={this.onSubmit}>
 
-        <div className="form-group">
+          <div className="form-group">
             <label>Status</label>
+           
+          <select className="form-control" value={this.status}  onChange={this.onChange} name="status">
+                    <option  name="status"  onChange={this.onChange} value={this.status}>To Do</option>
+                    <option  name="status"  onChange={this.onChange} value={this.status}>In Progress</option>
+                    <option  name="status"  onChange={this.onChange} value={this.status}>Done</option>
+                </select>
+              </div>
 
-            <input
-              className="form-control"
-              type="text"
-              name="status"
-              onChange={this.onChange}
-              value={this.status}
-            />
-          </div>
          
           <div className="form-group">
             <label>Text</label>
