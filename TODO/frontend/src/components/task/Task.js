@@ -24,7 +24,7 @@ export class Task extends Component {
     <thead>
     <tr>
     <th>State</th>
-    <th>Date</th>
+    <th>Due Date</th>
     <th>Text</th>
     <th></th>
     </tr>

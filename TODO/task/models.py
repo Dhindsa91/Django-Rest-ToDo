@@ -6,7 +6,7 @@ class task(models.Model):
 
     id = models.AutoField(primary_key=True)
     status = models.CharField(max_length=100)
-    dueDate = models.DateTimeField(auto_now_add=True, blank=True)
+    dueDate = models.DateTimeField(blank=True)
     text = models.TextField()
 
     
